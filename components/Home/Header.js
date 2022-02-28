@@ -17,12 +17,26 @@ const header = () => {
           <Image
             style={styles.icon}
             source={{
-              url: "https://img.icons8.com/fluency-system-regular/24/ffffff/plus-2-math--v1.png",
+              uri: "https://img.icons8.com/material-outlined/24/ffffff/plus-2-math--v1.png",
             }}
           />
         </TouchableOpacity>
-        <Text style={{ color: "white" }}>Test</Text>
-        <Text style={{ color: "white" }}>Test</Text>
+        <TouchableOpacity>
+          <Image
+            style={styles.icon}
+            source={{
+              uri: "https://img.icons8.com/material-outlined/24/ffffff/like--v1.png",
+            }}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Image
+            style={styles.icon}
+            source={{
+              uri: "https://img.icons8.com/material-outlined/24/ffffff/facebook-messenger--v1.png",
+            }}
+          />
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -41,6 +55,7 @@ const styles = StyleSheet.create({
   icon: {
     width: 30,
     height: 30,
+    margin: 5,
   },
   logo: {
     width: 100,
