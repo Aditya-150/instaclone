@@ -1,32 +1,31 @@
 export const USERS = [
   {
     id: "1",
-    user: "Elon_musk",
+    user: "Elonmusk",
     image:
-      "https://en.wikipedia.org/wiki/Elon_Musk#/media/File:Elon_Musk_Royal_Society_(crop2).jpg",
+      "https://www.incimages.com/uploaded_files/image/1920x1080/GettyImages-471774080_212156.jpg",
   },
   {
     id: "2",
-    user: "Jeff_Bezos",
-    image:
-      "https://en.wikipedia.org/wiki/Jeff_Bezos#/media/File:Jeff_Bezos_at_Amazon_Spheres_Grand_Opening_in_Seattle_-_2018_(39074799225)_(cropped).jpg",
+    user: "JeffBezos",
+    image: "https://images8.alphacoders.com/112/1129023.jpg",
   },
   {
     id: "3",
-    user: "The_rock",
+    user: "Therock",
     image:
-      "https://en.wikipedia.org/wiki/Dwayne_Johnson#/media/File:Dwayne_Johnson_2014_(cropped).jpg",
+      "https://pbs.twimg.com/profile_images/3478244961/01ebfc40ecc194a2abc81e82ab877af4_400x400.jpeg",
   },
   {
     id: "4",
-    user: "Alan_walker",
+    user: "Alanwalker",
     image:
-      "https://en.wikipedia.org/wiki/Alan_Walker_(music_producer)#/media/File:Alan_Walker.jpg",
+      "https://pbs.twimg.com/profile_images/1464164070047862784/FCqkIsM3_400x400.jpg",
   },
   {
     id: "5",
-    user: "Will_smith",
+    user: "Willsmith",
     image:
-      "https://en.wikipedia.org/wiki/Will_Smith#/media/File:TechCrunch_Disrupt_2019_(48834434641)_(cropped).jpg",
+      "https://pbs.twimg.com/profile_images/1352761697631539200/z3VDhz6p_400x400.jpg",
   },
 ];
