@@ -10,7 +10,8 @@ export const postFooterIcons = [
   },
   {
     name: "Comment",
-    imageurl: "https://img.icons8.com/material-outlined/48/ffffff/speech-bubble--v1.png",
+    imageurl:
+      "https://img.icons8.com/material-outlined/48/ffffff/speech-bubble--v1.png",
   },
   {
     name: "Share",
@@ -32,6 +33,7 @@ const Post = ({ post }) => {
       <PostImage post={post} />
       <View style={{ marginHorizontal: 15, marginTop: 10 }}>
         <PostFooter />
+        <Likes post={post} />
       </View>
     </View>
   );
@@ -90,6 +92,14 @@ const Icon = ({ imgStyle, imgUrl }) => (
     <Image style={imgStyle} source={{ uri: imgUrl }} />
   </TouchableOpacity>
 );
+
+const Likes = ({ post }) => (
+  <View style={{ flexDirection: "row", marginTop: 4 }}>
+    <Text style={{ color: "white", fontWeight: "600", }}>
+      {post.likes.toLocaleString("en")} likes
+    </Text>
+  </View>
+);
 const styles = StyleSheet.create({
   story: {
     width: 35,
@@ -104,10 +114,10 @@ const styles = StyleSheet.create({
     height: 33,
   },
   leftFooterIconsContainer: {
-      flexDirection: "row",
-      width: '32%',
-      justifyContent: 'space-between',
-  }
+    flexDirection: "row",
+    width: "32%",
+    justifyContent: "space-between",
+  },
 });
 
 export default Post;
