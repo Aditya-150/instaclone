@@ -6,8 +6,7 @@ export const POSTS = [
       "https://www.nasa.gov/sites/default/files/thumbnails/image/for_press_release.jpg",
     user: USERS[0].user,
     likes: 9990,
-    caption:
-      "Pretending to be out of the world 🚀.",
+    caption: "Pretending to be out of the world 🚀.",
     profile_picture: USERS[0].image,
     comments: [
       {
@@ -25,8 +24,7 @@ export const POSTS = [
       "https://www.blueorigin.com/assets/blueorigin_bluemoon_ascent.jpg",
     user: USERS[1].user,
     likes: 8990,
-    caption:
-      "Pretending to be Elon Musk 🚀.",
+    caption: "Pretending to be Elon Musk 🚀.",
     profile_picture: USERS[1].image,
     comments: [
       {
