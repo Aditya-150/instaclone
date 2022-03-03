@@ -34,6 +34,7 @@ const Post = ({ post }) => {
       <View style={{ marginHorizontal: 15, marginTop: 10 }}>
         <PostFooter />
         <Likes post={post} />
+        <Caption post={post} />
       </View>
     </View>
   );
@@ -54,7 +55,7 @@ const PostHeader = ({ post }) => (
         {post.user}
       </Text>
     </View>
-    <Text style={{ color: "white", flexDirection: "row", fontWeight: "900" }}>
+    <Text style={{ color: "white", flexDirection: "row", fontWeight: "700" }}>
       ...
     </Text>
   </View>
@@ -95,8 +96,17 @@ const Icon = ({ imgStyle, imgUrl }) => (
 
 const Likes = ({ post }) => (
   <View style={{ flexDirection: "row", marginTop: 4 }}>
-    <Text style={{ color: "white", fontWeight: "600", }}>
+    <Text style={{ color: "white", fontWeight: "600" }}>
       {post.likes.toLocaleString("en")} likes
+    </Text>
+  </View>
+);
+
+const Caption = ({ post }) => (
+  <View style={{ marginTop: 5 }}>
+    <Text style={{ color: "white" }}>
+      <Text style={{ fontWeight: "700" }}>{post.user}</Text>
+      <Text style={{ color: "white" }}>  {post.caption}</Text>
     </Text>
   </View>
 );
