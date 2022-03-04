@@ -32,16 +32,26 @@ const BottomTabs = ({icons}) => {
 
   const Icon = ({icon}) => (
     <TouchableOpacity onPress={() => setActiveTab(icon.name)}>  
-      <Image/>
+      <Image source={{uri:icon.inactive}} style={styles.icon}/>
     </TouchableOpacity>
   )
   return (
-    <View>
+    <View style={styles.container}>
       {icons.map((icon, index) =>(
         <Icon key={index} icon={icon}/>
         ))}
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: "row",
+  },
+  icon: {
+    width: 30, 
+    height: 30,
+  },
+})
 
 export default BottomTabs;
