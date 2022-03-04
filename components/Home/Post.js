@@ -67,7 +67,7 @@ const PostImage = ({ post }) => (
   <View
     style={{
       width: "100%",
-      height: 400,
+      height: 450,
     }}
   >
     <Image
