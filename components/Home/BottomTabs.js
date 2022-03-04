@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text } from "react-native";
+import { View, Text, TouchableOpacity, Image } from "react-native";
 import { Divider } from "react-native-elements";
 
 export const bottomTabIcons = [
@@ -27,10 +27,19 @@ export const bottomTabIcons = [
       "https://pbs.twimg.com/profile_images/1480772552305745920/2STj0Aao_400x400.jpg",
   },
 ];
-const BottomTabs = () => {
+const BottomTabs = ({icons}) => {
+  const [activeTab, setActiveTab] = useState("Home")
+
+  const Icon = ({icon}) => (
+    <TouchableOpacity onPress={() => setActiveTab(icon.name)}>  
+      <Image/>
+    </TouchableOpacity>
+  )
   return (
     <View>
-      <Text>BottomTabs</Text>
+      {icons.map((icon, index) =>(
+        <Icon key={index} icon={icon}/>
+        ))}
     </View>
   );
 };
