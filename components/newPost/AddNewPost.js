@@ -1,12 +1,42 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 
 const AddNewPost = () => {
   return (
-    <View>
-      <Text>AddNewPost</Text>
+    <View style={styles.container}>
+      <Header />
     </View>
   );
 };
 
+const Header = () => (
+  <View style={styles.headerContainer}>
+    <TouchableOpacity>
+      <Image
+        source={{
+          uri: "https://img.icons8.com/ios-filled/50/ffffff/back.png",
+        }}
+        style={{ width: 30, height: 30 }}
+      />
+    </TouchableOpacity>
+    <Text style={styles.headerText}>New Post</Text>
+    <Text></Text>
+  </View>
+);
+const styles = StyleSheet.create({
+  container: {
+    marginHorizontal: 10,
+  },
+  headerContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+  headerText: {
+    color: "white",
+    fontWeight: '700',
+    fontSize: 20,
+    marginRight: 35,
+  },
+});
 export default AddNewPost;
