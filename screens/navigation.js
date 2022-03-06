@@ -1,12 +1,26 @@
 import React from "react";
 import { View, Text } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import HomeScreen from "./HomeScreen";
+import NewPostScreen from "./NewPostScreen";
 
-const navigation = () => {
-  return (
-    <View>
-      <Text>navigation</Text>
-    </View>
-  );
+const Stack = createStackNavigator();
+
+const screenOptions = {
+  headerShown: false,
 };
 
-export default navigation;
+const SignedInStack = () => (
+  <NavigationContainer>
+    <Stack.Navigator
+      initialRouteName="HomeScreen"
+      screenOptions={screenOptions}
+    >
+      <Stack.Screen name="HomeScreen" component={HomeScreen} />
+      <Stack.Screen name="NewPostScreen" component={NewPostScreen} />
+    </Stack.Navigator>
+  </NavigationContainer>
+);
+
+export default SignedInStack;
