@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, SafeAreaView, StatusBar } from "react-native";
 import AddNewPost from "../components/newPost/AddNewPost";
 
-const NewPostScreen = () => {
+const NewPostScreen = ({navigation}) => {
   return (
     <SafeAreaView
       style={{
@@ -11,7 +11,7 @@ const NewPostScreen = () => {
         paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
       }}
     >
-      <AddNewPost />
+      <AddNewPost navigation={navigation}/>
     </SafeAreaView>
   );
 };
