@@ -15,7 +15,6 @@ const LoginForm = () => {
   const LoginFormSchema = Yup.object().shape({
     email: Yup.string().email().required("An email is required"),
     password: Yup.string()
-      .password()
       .required()
       .min(8, "Your password must be of at least 8 characters"),
   });
@@ -62,8 +61,9 @@ const LoginForm = () => {
             </View>
             <Pressable
               titleSize={20}
-              style={styles.button}
+              style={styles.button(isValid)}
               onPress={handleSubmit}
+              disabled={!isValid}
             >
               <Text style={styles.buttonText}>Log In</Text>
             </Pressable>
@@ -92,13 +92,13 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     borderColor: "#d9d9d9",
   },
-  button: {
-    backgroundColor: "#008cff",
+  button: (isValid) => ({
+    backgroundColor: isValid ? "#008cff" : "#8ce4ff",
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 4,
     minHeight: 42,
-  },
+  }),
   buttonText: {
     fontSize: 18,
     fontWeight: "600",
@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     width: "100%",
     justifyContent: "center",
-    marginTop: 10,
+    marginTop: 30,
   },
 });
 

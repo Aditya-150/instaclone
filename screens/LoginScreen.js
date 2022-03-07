@@ -2,8 +2,7 @@ import React from "react";
 import { View, Text, Image, StyleSheet } from "react-native";
 import LoginForm from "../components/loginScreen/LoginForm";
 
-const INSTAGRAM_LOGO =
-  "https://img.icons8.com/fluency/512/000000/instagram-new.png";
+const INSTAGRAM_LOGO = "https://cdn-icons-png.flaticon.com/512/174/174855.png";
 const LoginScreen = () => {
   return (
     <View style={styles.container}>
