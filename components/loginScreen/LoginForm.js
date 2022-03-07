@@ -1,48 +1,81 @@
-import React, { useState }from "react";
-import { View, Text, TextInput, StyleSheet, Pressable, TouchableOpacity } from "react-native";
+import React, { useState } from "react";
+import {
+  View,
+  Text,
+  TextInput,
+  StyleSheet,
+  Pressable,
+  TouchableOpacity,
+} from "react-native";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import Validators from "email-validator";
 
 const LoginForm = () => {
+  const LoginFormSchema = Yup.object().shape({
+    email: Yup.string().email().required("An email is required"),
+    password: Yup.string()
+      .password()
+      .required()
+      .min(8, "Your password must be of at least 8 characters"),
+  });
   return (
     <View style={styles.wrapper}>
-      <View style={styles.inputField}>
-        <TextInput
-          placeholderTextColor="#666666"
-          placeholder="Phone number, username or email"
-          autoCapitalize="none"
-          keyboardType="email-address"
-          textContentType="emailAddress"
-          autoFocus={true}
-        />
-      </View>
-      <View style={styles.inputField}>
-        <TextInput
-          placeholderTextColor="#666666"
-          placeholder="Password"
-          autoCapitalize="none"
-          textContentType="password"
-          autoCorrect={false}
-          secureTextEntry={true}
-        />
-      </View>
-      <View style={{ alignItems: "flex-end", marginBottom: 30 }}>
-        <Text style={{ color: "#3bb4ff" }}>Forgot password?</Text>
-      </View>
-      <Pressable
-        titleSize={20}
-        style={styles.button}
-        onPress={() => console.log("You clicked me")}
+      <Formik
+        initialValues={{ email: "", password: "" }}
+        onSubmit={(values) => {
+          console.log(values);
+        }}
+        validationSchema={LoginFormSchema}
+        validateOnMount={true}
       >
-        <Text style={styles.buttonText}>Log In</Text>
-      </Pressable>
-      <View style={styles.signupContainer}>
-        <Text>Don't have an account?</Text>
-        <TouchableOpacity>
-          <Text style={{ color: "#008cff" }}> Sign Up</Text>
-        </TouchableOpacity>
-      </View>
+        {({ handleChange, handleBlur, handleSubmit, values, isValid }) => (
+          <>
+            <View style={styles.inputField}>
+              <TextInput
+                placeholderTextColor="#666666"
+                placeholder="Phone number, username or email"
+                autoCapitalize="none"
+                keyboardType="email-address"
+                textContentType="emailAddress"
+                autoFocus={true}
+                onChangeText={handleChange("email")}
+                onBlur={handleBlur("email")}
+                value={values.email}
+              />
+            </View>
+            <View style={styles.inputField}>
+              <TextInput
+                placeholderTextColor="#666666"
+                placeholder="Password"
+                autoCapitalize="none"
+                textContentType="password"
+                autoCorrect={false}
+                secureTextEntry={true}
+                onChangeText={handleChange("password")}
+                onBlur={handleBlur("password")}
+                value={values.password}
+              />
+            </View>
+            <View style={{ alignItems: "flex-end", marginBottom: 30 }}>
+              <Text style={{ color: "#3bb4ff" }}>Forgot password?</Text>
+            </View>
+            <Pressable
+              titleSize={20}
+              style={styles.button}
+              onPress={handleSubmit}
+            >
+              <Text style={styles.buttonText}>Log In</Text>
+            </Pressable>
+            <View style={styles.signupContainer}>
+              <Text>Don't have an account?</Text>
+              <TouchableOpacity>
+                <Text style={{ color: "#008cff" }}> Sign Up</Text>
+              </TouchableOpacity>
+            </View>
+          </>
+        )}
+      </Formik>
     </View>
   );
 };
@@ -72,11 +105,11 @@ const styles = StyleSheet.create({
     color: "#ffffff",
   },
   signupContainer: {
-      flexDirection: "row",
-      width: '100%',
-      justifyContent: "center",
-      marginTop: 10,
-  }
+    flexDirection: "row",
+    width: "100%",
+    justifyContent: "center",
+    marginTop: 10,
+  },
 });
 
 export default LoginForm;
