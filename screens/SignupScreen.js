@@ -3,7 +3,7 @@ import { View, Text, Image, StyleSheet } from "react-native";
 import SignupForm from "../components/signupScreen/SignupForm";
 
 const INSTAGRAM_LOGO = "https://cdn-icons-png.flaticon.com/512/174/174855.png";
-const SignupScreen = () => {
+const SignupScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.logoContainer}>
@@ -11,7 +11,7 @@ const SignupScreen = () => {
           source={{ uri: INSTAGRAM_LOGO }}
           style={{ width: 100, height: 100 }}
         />
-        <SignupForm/>
+        <SignupForm navigation={navigation}/>
       </View>
     </View>
   );
