@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { Formik } from "formik";
 import * as Yup from "yup";
-import Validators from "email-validator";
+import Validator from "email-validator";
 
 const LoginForm = () => {
   const LoginFormSchema = Yup.object().shape({
@@ -30,7 +30,17 @@ const LoginForm = () => {
       >
         {({ handleChange, handleBlur, handleSubmit, values, isValid }) => (
           <>
-            <View style={styles.inputField}>
+            <View
+              style={[
+                styles.inputField,
+                {
+                  borderColor:
+                    values.email.length < 1 || Validator.validate(values.email)
+                      ? "#666666"
+                      : "red",
+                },
+              ]}
+            >
               <TextInput
                 placeholderTextColor="#666666"
                 placeholder="Phone number, username or email"
